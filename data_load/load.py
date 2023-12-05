@@ -9,8 +9,8 @@ def upload_to_s3(file_path, object_name=None):
     - return: 성공 여부
     """
     # AWS 계정 정보 및 S3 버킷 정보 설정
-    aws_access_key_id = 'AKIAY6I32O2YA2Q55VGU'
-    aws_secret_access_key = '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'
+    aws_access_key_id = ''
+    aws_secret_access_key = ''
     bucket_name = 'de-project2-bucket'
 
     # S3 클라이언트 생성
