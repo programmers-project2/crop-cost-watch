@@ -15,7 +15,7 @@ class Parser:
         '''
         self.base_api_url = base_api_url
         self.csv_filename = csv_filename
-        with open(self.csv_filename, 'w', newline='', encoding='utf-16') as csvfile:
+        with open(self.csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
             csv_writer = csv.writer(csvfile)
             csv_writer.writerow(["품목", "품종", "지역", "날짜", "가격", "상호명"])
 
@@ -58,14 +58,14 @@ class Parser:
                     kindname = kindname.strip()
                     countyname = countyname.strip()
                     yyyy = yyyy.strip()
-                    regday = regday.strip()
+                    regday = regday.strip().replace('/','-')
                     price = int(price.strip().replace(',', ''))
                     marketname = marketname.strip()
                 else:
                     continue
-                data.append([itemname, kindname, countyname, yyyy+"/"+regday, price, marketname])
+                data.append([itemname, kindname, countyname, yyyy+"-"+regday, price, marketname])
             
-            with open(self.csv_filename, 'a', newline='', encoding='utf-16') as csvfile:
+            with open(self.csv_filename, 'a', newline='', encoding='utf-8') as csvfile:
                 csv_writer = csv.writer(csvfile)
                 csv_writer.writerows(data)
                 
