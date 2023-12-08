@@ -1,0 +1,17 @@
+CREATE or replace TABLE dev.analytics.yesterday_summary AS
+SELECT
+    TD.REGION,
+    TD.ITEM,
+    TD.VARIETY,
+    TD.PRICE TODAY_PRICE,
+    YD.PRICE YESTERDAY_PRICE,
+    YD.PRICE-TD.PRICE PRICE_FLUCTUATION,
+    ROUND((YD.PRICE-TD.PRICE)/YD.PRICE*100, 2) PRICE_FLUCTUATION_RATE
+FROM raw_data.today_data TD
+LEFT JOIN raw_data.yesterday_data YD
+    ON TD.ITEM = YD.ITEM and TD.REGION = YD.REGION and TD.VARIETY = YD.VARIETY
+;
+
+SELECT *
+FROM dev.analytics.yesterday_summary
+;
