@@ -16,7 +16,7 @@
 ## 프로젝트 구조
 ![image](https://github.com/programmers-project2/crop-cost-watch/assets/100893674/94b8c8cb-adcd-49f1-959a-32ac4099faec)
 
-1. API(https://www.kamis.or.kr/customer/reference/openapi_list.do?action=detail&boardno=2)를 이용하여 (일별 품목별 도·소매 가격 정보) 데이터를 수집 및 정제한 후 이를 S3 버킷에 저장합니다.
+1. API(https://www.kamis.or.kr/customer/reference/openapi_list.do?action=detail&boardno=2) 를 이용하여 (일별 품목별 도·소매 가격 정보) 데이터를 수집 및 정제한 후 이를 S3 버킷에 저장합니다.
 2. Snowflake에서 Database, Schema, Table을 생성한 후, S3로부터 데이터를 적재(bulk update)합니다.
 3. Snowflake에서 데이터를 전처리한 후 분석용 테이블(summary 테이블)을 생성합니다.
 4. Superset 오픈 소스를 docker에서 실행하여 Snowflake와 연동한 후, 기존의 summary 테이블을 통해 차트 및 대시 보드를 생성합니다.
