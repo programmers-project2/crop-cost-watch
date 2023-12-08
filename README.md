@@ -14,7 +14,7 @@
 <br>
 
 ## 프로젝트 구조
-![image](https://github.com/programmers-project2/crop-cost-watch/assets/100893674/27d19257-e4c9-4d18-bd37-e3a60929800a)
+![image](https://github.com/programmers-project2/crop-cost-watch/assets/100893674/94b8c8cb-adcd-49f1-959a-32ac4099faec)
 
 1. API(https://www.kamis.or.kr/customer/reference/openapi_list.do?action=detail&boardno=2)를 이용하여 (일별 품목별 도·소매 가격 정보) 데이터를 수집 및 정제한 후 이를 S3 버킷에 저장합니다.
 2. Snowflake에서 Database, Schema, Table을 생성한 후, S3로부터 데이터를 적재(bulk update)합니다.
